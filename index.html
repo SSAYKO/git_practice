@@ -1,36 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentation Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Git Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html" style="font-size: larger; font-weight: bold;">Project Docs</a></li>
-            <hr>
-            <li><a href="introduction.html">Introduction</a></li>
-            <li><a href="installation.html">Installation</a></li>
-            <li><a href="usage.html">Usage</a></li>
-            <li><a href="api.html">API</a></li>
-            <li><a href="contributing.html">Contributing</a></li>
-            <li><a href="license.html">License</a></li>
+
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2><i data-lucide="git-branch"></i> Git Docs</h2>
+            <input type="text" id="input-search" placeholder="Buscar...">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#inicio"><i data-lucide="home"></i> Inicio</a></li>
+            <li class="dropdown">
+                <span class="dropdown-btn"><i data-lucide="folder"></i> Conceptos Básicos <i data-lucide="chevron-down"></i></span>
+                <ul class="dropdown-content">
+                    <li><a href="#control-versiones"><i data-lucide="layers"></i> Control de Versiones</a></li>
+                    <li><a href="#git"><i data-lucide="git-branch"></i> ¿Qué es Git?</a></li>
+                    <li><a href="#github"><i data-lucide="cloud"></i> ¿Qué es GitHub?</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <span class="dropdown-btn"><i data-lucide="terminal"></i> Comandos Básicos <i data-lucide="chevron-down"></i></span>
+                <ul class="dropdown-content">
+                    <li><a href="#git-init"><i data-lucide="file-plus"></i> git init</a></li>
+                    <li><a href="#git-add"><i data-lucide="plus-square"></i> git add</a></li>
+                    <li><a href="#git-commit"><i data-lucide="database"></i> git commit</a></li>
+                    <li><a href="#git-log"><i data-lucide="clock"></i> git log</a></li>
+                    <li><a href="#git-branch"><i data-lucide="git-branch"></i> git branch</a></li>
+                </ul>
+            </li>
+            <li><a href="#ramas"><i data-lucide="git-merge"></i> Ramas en Git</a></li>
+            <li><a href="#buenas-practicas"><i data-lucide="check-circle"></i> Buenas Prácticas</a></li>
+            <li><a href="#recursos"><i data-lucide="book"></i> Recursos</a></li>
         </ul>
-    </nav>
-    <main>
-        <header>
-            <h1>Project Documentation</h1>
-        </header>
-        <section>
-            <h2>Welcome to the Documentation</h2>
-            <p>Select a section from the navigation menu to get started.</p>
+        <div class="sidebar-footer">
+            <button id="dark-mode-toggle"><i data-lucide="moon"></i> Modo Oscuro</button>
+            <a href="https://github.com/SSAYKO/git_practice" target="_blank">
+                <i data-lucide="github"></i>
+            </a>
+        </div>
+    </div>
+    <main class="content">
+        <h1 id="inicio">Bienvenido a Git Docs</h1>
+        <p>Aquí encontrarás toda la información sobre Git y GitHub.</p>
+        <section id="inicio">
+            <p>Esta documentación te ayudará a entender y utilizar <strong>Git</strong>, el sistema de control de versiones más popular, así como <strong>GitHub</strong>, la plataforma de desarrollo colaborativo basada en Git.</p>
+            
+            <h2>📌 ¿Qué encontrarás aquí?</h2>
+            <ul>
+                <li><strong>Conceptos Básicos:</strong> Aprende qué es un sistema de control de versiones y cómo funciona.</li>
+                <li><strong>Comandos Esenciales:</strong> Descubre los comandos fundamentales para trabajar con Git.</li>
+                <li><strong>Ramas en Git:</strong> Gestiona versiones y colabora con otros de manera eficiente.</li>
+                <li><strong>Buenas Prácticas:</strong> Sigue recomendaciones para mejorar tu flujo de trabajo.</li>
+            </ul>
+        
+            <h2>🛠️ ¿Qué es un sistema de control de versiones?</h2>
+            <p>Un sistema de control de versiones es una herramienta que permite gestionar y hacer seguimiento a los cambios en archivos a lo largo del tiempo. Esto facilita la colaboración en equipo, ya que mantiene un historial completo de modificaciones.</p>
+        
+            <p>Con un control de versiones, puedes:</p>
+            <ul>
+                <li>Guardar el historial de cambios en tus archivos.</li>
+                <li>Revertir archivos a versiones anteriores.</li>
+                <li>Comparar diferencias entre versiones.</li>
+                <li>Trabajar en diferentes líneas de desarrollo de manera simultánea (ramas).</li>
+                <li>Fusionar cambios de distintas versiones.</li>
+            </ul>
+        
+            <h2>⚖️ Tipos de control de versiones</h2>
+            
+            <h3>📌 Sistemas Centralizados</h3>
+            <ul>
+                <li>Existe un único repositorio central donde se almacenan los archivos.</li>
+                <li>Todos los desarrolladores deben conectarse a ese repositorio.</li>
+                <li>Si el servidor central falla y no hay copias de seguridad, se pierde toda la información.</li>
+            </ul>
+        
+            <h3>📌 Sistemas Distribuidos</h3>
+            <ul>
+                <li>Cada desarrollador tiene una copia completa del repositorio.</li>
+                <li>No es necesario estar conectado a un servidor para trabajar.</li>
+                <li>Los cambios pueden fusionarse fácilmente con otros repositorios.</li>
+            </ul>
+        
+            <h2>🚀 ¿Qué es Git?</h2>
+            <p><strong>Git</strong> es un sistema de control de versiones distribuido que permite registrar cambios en archivos y colaborar con otros desarrolladores de manera eficiente. A diferencia de los sistemas centralizados, cada usuario tiene una copia completa del repositorio.</p>
+        
+            <h2>🌍 ¿Qué es GitHub?</h2>
+            <p><strong>GitHub</strong> es una plataforma basada en la nube que facilita la gestión de repositorios Git. Permite almacenar código, colaborar en proyectos y realizar seguimiento de cambios.</p>
+        
+            <h3>Con GitHub puedes:</h3>
+            <ul>
+                <li>Compartir tu código con otros desarrolladores.</li>
+                <li>Gestionar cambios y revisar modificaciones en los archivos.</li>
+                <li>Colaborar en proyectos sin afectar el código principal hasta que los cambios estén listos.</li>
+            </ul>
         </section>
-        <footer>
-            <p>&copy; 2023 Your Name. All rights reserved.</p>
-        </footer>
+        
     </main>
-    <script src="index.js"></script>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
