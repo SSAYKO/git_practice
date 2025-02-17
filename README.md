@@ -42,5 +42,5 @@ Algunos de los comandos que se están practicando en este repositorio incluyen:
 Este proyecto está bajo la licencia MIT - consulta el archivo [LICENSE](LICENSE) para más detalles.
 
 ---
-¡Diviértete practicando Git! 🚀
+by SSAYKO
 
