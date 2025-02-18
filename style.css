@@ -1,0 +1,230 @@
+/* Estilos generales */
+body {
+    display: flex;
+    margin: 0;
+    font-family: "Atkinson Hyperlegible Next", serif;
+    background-color: #0d1117; /* Modo oscuro por defecto */
+    color: #c9d1d9;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* Barra lateral */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #161b22;
+    color: #c9d1d9;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Estilos del título y buscador */
+.sidebar-header {
+    text-align: center;
+}
+
+.sidebar-header h2 {
+    margin: 0;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.sidebar-header input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #30363d;
+    background-color: #21262d;
+    color: #c9d1d9;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.sidebar-header input:focus {
+    border-color: #58a6ff;
+}
+
+/* Links de navegación */
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin-top: 40px;
+}
+
+.nav-links li {
+    margin: 4px 0;
+}
+
+.nav-links a {
+    color: #c9d1d9;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px;
+    border-radius: 5px;
+    transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.nav-links a:hover {
+    background-color: #238636;
+    transform: translateX(5px);
+}
+
+/* Dropdowns */
+.dropdown .dropdown-btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px;
+    border-radius: 5px;
+    transition: background 0.2s ease-in-out;
+}
+
+.dropdown .dropdown-btn:hover {
+    background-color: #238636;
+}
+
+.dropdown-content {
+    display: none;
+    list-style: none;
+    padding-left: 15px;
+}
+
+.dropdown-content li a {
+    font-size: 14px;
+}
+
+/* Íconos */
+i {
+    width: 20px;
+    height: 20px;
+}
+
+/* Footer */
+.sidebar-footer {
+    margin-top: auto;
+    text-align: center;
+}
+
+.sidebar-footer button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: none;
+    background: none;
+    color: #c9d1d9;
+    cursor: pointer;
+}
+
+.sidebar-footer a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Contenido principal */
+.content {
+    margin-left: 270px;
+    padding: 20px;
+    width: calc(100% - 270px);
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* Modo claro */
+.light-mode {
+    background-color: #f6f8fa;
+    color: #24292e;
+}
+
+.light-mode .sidebar {
+    background-color: #e3e7eb;
+    color: #24292e;
+}
+
+.light-mode .sidebar-header input {
+    background-color: #ffffff;
+    color: #24292e;
+    border: 1px solid #d1d5da;
+}
+
+.light-mode .content {
+    background-color: #ffffff;
+    color: #24292e;
+}
+
+/* Contenedor del buscador */
+.search-box {
+    display: flex;
+    align-items: center;
+    background-color: #21262d; /* Color oscuro de GitHub */
+    border: 1px solid #30363d; /* Borde sutil */
+    border-radius: 6px;
+    padding: 3px 3px;
+    gap: 8px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+/* Campo de entrada */
+#input-search {
+    background: transparent;
+    border: 0.5px solid #c9d1d9;
+    color: #c9d1d9;
+    outline: none;
+    font-size: 14px;
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 0;
+        overflow: hidden;
+        padding: 0;
+        transition: width 0.3s ease-in-out, padding 0.3s ease-in-out;
+    }
+
+    .sidebar.open {
+        width: 250px;
+        padding: 15px;
+    }
+
+    .content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    /* Botón de menú */
+    .menu-btn {
+        display: block;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        background: none;
+        border: none;
+        color: #c9d1d9;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 1000;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .menu-btn {
+        display: none; /* Ocultar el botón en pantallas grandes */
+    }
+}
